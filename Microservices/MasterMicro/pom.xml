@@ -8,10 +8,10 @@
 		<version>2.3.11.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hm.app</groupId>
+	<groupId>com.hostel.MasterMicro</groupId>
 	<artifactId>hm-master-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hm-master-service</name>
+	<name>hotel-Master-Micro</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
