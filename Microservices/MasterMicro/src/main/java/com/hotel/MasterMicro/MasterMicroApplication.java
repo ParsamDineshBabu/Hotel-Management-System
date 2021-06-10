@@ -23,14 +23,12 @@ public class MasterMicroApplication {
 	}
 	 
 	/*
-	 * @RequestMapping("/") public String test() { RestTemplate resttemplate = new
-	 * RestTemplate();
+	 * @RequestMapping("/test") public String test1() { RestTemplate resttemplate =
+	 * new RestTemplate();
 	 * 
-	 * String s = resttemplate.getForObject("http://localhost:8089", String.class);
-	 * return s +"manojjjjj" ;
+	 * String s = resttemplate.getForObject("http://localhost:9191", String.class);
+	 * return s +"Dinesh" ;
 	 * 
 	 * }
 	 */
-
-
 }

@@ -11,9 +11,13 @@ import org.springframework.http.HttpHeaders;
 @RequestMapping("/booking")
 public class HotelBookingController {
 	
-	  @GetMapping(value = "/test/hm")
-	    public String testHm() {
+	  @GetMapping(value = "/test/booking")
+	    public String test() {
 	        return "Booking set up done!!";
+	    }
+	  @GetMapping(value = "/")
+	    public String testbooking() {
+	        return "hello";
 	    }
 
 }
