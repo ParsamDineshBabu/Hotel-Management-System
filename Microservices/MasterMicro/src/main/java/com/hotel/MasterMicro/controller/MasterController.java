@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.hotel.MasterMicro.model.ReturnResponse;
 import com.hotel.MasterMicro.model.RoomModel;
@@ -21,16 +22,16 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-@CrossOrigin(exposedHeaders = {HttpHeaders.CONTENT_DISPOSITION})
+//@CrossOrigin(exposedHeaders = {HttpHeaders.CONTENT_DISPOSITION})
 @RestController
 @RequestMapping("/master")
 @SuppressWarnings("unchecked")
 public class MasterController {
 	
-	@Autowired
-	RoomService roomServiceImpl;
+	    @Autowired
+	    RoomService roomServiceImpl;
 	
-	
+			
 	    @GetMapping("/test/hotel")
 	    public String test() {
 	        return "Master is working";
@@ -42,23 +43,26 @@ public class MasterController {
 		@PostMapping(value = "/create/room")
 		public ResponseEntity<String> createRoom(@RequestBody RoomModel roomDto) {
 			
-			return new ResponseEntity(roomServiceImpl.createRoom(roomDto), HttpStatus.OK);
+			return new ResponseEntity(roomServiceImpl.createRoom(roomDto), HttpStatus.CREATED);
 		}
 	
 		/* Reading details which belongs to Room in MongoDB whose collection is rooms */
 		
 		
 		@GetMapping(value="/getAll/rooms")
-	    public ResponseEntity<List<RoomModel>> getAllRooms(){
-			return new ResponseEntity(roomServiceImpl.getAllRooms(), HttpStatus.OK);
+	    public List<RoomModel> getAllRooms(){
+			return roomServiceImpl.getAllRooms();
 		}
 		
 		/* Reading particular room data which belongs to Room in MongoDB whose collection is rooms */
 		
 		@GetMapping(value="/getroom/byid/{id}")
 		
-		  public ResponseEntity<String> findRoomById(@PathVariable String id){ return
-		  new ResponseEntity(roomServiceImpl.findById(id), HttpStatus.OK);
+		  public ResponseEntity<String> findRoomById(@PathVariable String id){ 
+			
+			HttpHeaders head =new HttpHeaders();
+			head.set("ResponseHeader", "Successfully Excuted");
+			return new ResponseEntity(roomServiceImpl.findById(id), head, HttpStatus.OK);
 		  
 		  }
 		 
@@ -67,7 +71,7 @@ public class MasterController {
 		@PutMapping(value = "/update/room")
 		public ResponseEntity<String> updateRoom(@RequestBody RoomModel roomDto) {
 
-			return new ResponseEntity(new ReturnResponse(roomServiceImpl.updateRoom(roomDto)), HttpStatus.OK);
+			return new ResponseEntity(roomServiceImpl.updateRoom(roomDto), HttpStatus.OK);
 		}
 		
 		/* Deleting Room in MongoDB where collection is rooms */
