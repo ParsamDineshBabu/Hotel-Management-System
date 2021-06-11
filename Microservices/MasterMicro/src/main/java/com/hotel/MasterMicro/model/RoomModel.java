@@ -1,6 +1,9 @@
 package com.hotel.MasterMicro.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class RoomModel {
+	@ApiModelProperty(notes="Room Id",name="id")
     private String id;
 	
 	private String roomNo;

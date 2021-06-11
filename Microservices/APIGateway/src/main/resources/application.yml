@@ -1,7 +1,11 @@
 spring:
   application:
     name: GATEWAY-SERVICE
+
+    
   cloud:
+    discovery:
+      enabled: true
     gateway:
       routes:
         - id: master-service
@@ -39,8 +43,8 @@ eureka:
       fetch-registry: true
       service-url:
         defaultZone: http://localhost:8761/eureka
-instance:
-  hostname: localhost        
+   instance:
+      hostname: localhost        
 
 hystrix:
   command:
@@ -48,4 +52,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000  
+            timeoutInMilliseconds: 10000              
