@@ -15,6 +15,8 @@ import com.hotel.MasterMicro.model.ReturnResponse;
 import com.hotel.MasterMicro.model.RoomModel;
 import com.hotel.MasterMicro.service.RoomService;
 
+import io.swagger.annotations.ApiOperation;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,7 @@ public class MasterController {
 	    
 		/* Creating Room in MongoDB whose collection is rooms */
 	    
-		
+		@ApiOperation(value = "It Will Create Room",notes="this just create room")
 		@PostMapping(value = "/create/room")
 		public ResponseEntity<String> createRoom(@RequestBody RoomModel roomDto) {
 			
@@ -48,7 +50,7 @@ public class MasterController {
 	
 		/* Reading details which belongs to Room in MongoDB whose collection is rooms */
 		
-		
+		@ApiOperation(value = "It Will Provide all Room Details ")
 		@GetMapping(value="/getAll/rooms")
 	    public List<RoomModel> getAllRooms(){
 			return roomServiceImpl.getAllRooms();
@@ -56,6 +58,7 @@ public class MasterController {
 		
 		/* Reading particular room data which belongs to Room in MongoDB whose collection is rooms */
 		
+		@ApiOperation(value = "It Will Provide Room Details with the help of ID")
 		@GetMapping(value="/getroom/byid/{id}")
 		
 		  public ResponseEntity<String> findRoomById(@PathVariable String id){ 
@@ -68,6 +71,7 @@ public class MasterController {
 		 
 		/* Updating Room in MongoDB whose collection is rooms */
 
+		@ApiOperation(value = "It Will Update the Room Details")
 		@PutMapping(value = "/update/room")
 		public ResponseEntity<String> updateRoom(@RequestBody RoomModel roomDto) {
 
