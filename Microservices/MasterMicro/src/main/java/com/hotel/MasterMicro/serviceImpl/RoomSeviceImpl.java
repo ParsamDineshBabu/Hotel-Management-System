@@ -43,7 +43,8 @@ public class RoomSeviceImpl implements RoomService {
 			savedRoom =  roomRepository.save(new Room(roomDto.getId(),roomDto.getRoomNo(), roomDto.getFloor(), roomDto.getCategory(), roomDto.getCapacity(),
 					roomDto.getPrice(),roomDto.isBooked()));
 			return savedRoom.getRoomNo();
-		}else{
+		}
+		else{
 			return "Unable to fnd Room";
 		}
 
