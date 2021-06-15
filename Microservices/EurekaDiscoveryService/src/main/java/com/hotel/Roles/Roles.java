@@ -1,13 +1,13 @@
-package com.hotel.EurekaDiscoveryService;
+package com.hotel.Roles;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EurekaDiscoveryServiceApplication {
+public class Roles {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EurekaDiscoveryServiceApplication.class, args);
+		SpringApplication.run(Roles.class, args);
 	}
 
 }
