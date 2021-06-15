@@ -1,12 +1,23 @@
 spring:
   application:
     name: GATEWAY-SERVICE
-
-    
   cloud:
-    discovery:
-      enabled: true
     gateway:
+      discovery:
+        locator:
+          enabled: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
       routes:
         - id: master-service
           uri: lb://MASTER-SERVICE
@@ -16,7 +27,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: master-service
-                fallbackuri: forward:/masterFallBack
+                fallbackuri: forward:/masterFallback
         - id: booking-service
           uri: lb://BOOKING-SERVICE
           predicates:
@@ -25,26 +36,30 @@ spring:
             - name: CircuitBreaker
               args:
                 name: booking-service
-                fallbackuri: forward:/bookingFallBack
-      
-                
+                fallbackuri: forward:/bookingFallback
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: auth-service
+                fallbackuri: forward:/authFallback        
+
+
 
 server:
   port: 8989
-  
+
 management:
+  endpoint:
+    gateway:
+      enabled: true
   endpoints:
     web:
       exposure:
         include: hystrix.stream
-eureka:
-   client:
-      register-with-eureka: true
-      fetch-registry: true
-      service-url:
-        defaultZone: http://localhost:8761/eureka
-   instance:
-      hostname: localhost        
 
 hystrix:
   command:
@@ -52,4 +67,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000              
+            timeoutInMilliseconds: 9000000
