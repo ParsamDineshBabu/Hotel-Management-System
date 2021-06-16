@@ -24,6 +24,7 @@ spring:
           predicates:
             - Path=/master/**
           filters:
+            - AuthFilter
             - name: CircuitBreaker
               args:
                 name: master-service
@@ -33,10 +34,20 @@ spring:
           predicates:
             - Path=/booking/**
           filters:
+            - AuthFilter
             - name: CircuitBreaker
               args:
                 name: booking-service
                 fallbackuri: forward:/bookingFallback
+        - id: roles-service
+          uri: lb://ROLES-SERVICE
+          predicates:
+            - Path=/roles/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: roles-service
+                fallbackuri: forward:/rolesFallback 
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
@@ -46,6 +57,7 @@ spring:
               args:
                 name: auth-service
                 fallbackuri: forward:/authFallback        
+       
 
 
 

@@ -16,6 +16,10 @@ public class FallbackController {
     public Mono<String> bookingServiceFallBack() {
         return Mono.just("Booking Service is taking too long to respond or is down. Please try again later");
     }
+    @RequestMapping("/rolesFallback")
+    public Mono<String> rolesServiceFallBack() {
+        return Mono.just("Roles Service is taking too long to respond or is down. Please try again later");
+    }
     @RequestMapping("/authFallback")
     public Mono<String> authServiceFallBack() {
         return Mono.just("Auth Service is taking too long to respond or is down. Please try again later");
