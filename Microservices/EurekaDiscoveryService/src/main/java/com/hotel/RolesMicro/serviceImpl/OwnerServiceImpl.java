@@ -41,5 +41,4 @@ public class OwnerServiceImpl implements OwnerService{
 		ownerRepository.deleteById(username);
 		return "Owner Deleted";
 	}
-
 }

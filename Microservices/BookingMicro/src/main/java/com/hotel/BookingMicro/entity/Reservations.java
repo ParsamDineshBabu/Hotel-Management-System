@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "reservations")
 public class Reservations {
+	
 	@Id
 	private String id;
 	
@@ -211,7 +212,5 @@ public class Reservations {
 				+ ", company=" + company + ", city=" + city + ", spoc=" + spoc + ", paymentType=" + paymentType
 				+ ", amount=" + amount + ", status=" + status + "]";
 	}
-
-	
-
+		
 }

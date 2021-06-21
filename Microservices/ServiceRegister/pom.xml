@@ -8,10 +8,10 @@
 		<version>2.3.11.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hm.app</groupId>
-	<artifactId>hm-service-registry-service</artifactId>
+	<groupId>com.hotel.app</groupId>
+	<artifactId>hotel-service-registry-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hm-service-registry-service</name>
+	<name>hotel-service-registry-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

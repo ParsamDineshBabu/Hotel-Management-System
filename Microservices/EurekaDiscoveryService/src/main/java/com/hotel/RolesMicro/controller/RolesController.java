@@ -21,32 +21,40 @@ import io.swagger.annotations.ApiOperation;
 @CrossOrigin(exposedHeaders = {HttpHeaders.CONTENT_DISPOSITION})
 @RestController
 @RequestMapping("/roles")
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","rawtypes"})
 
 public class RolesController {
 	
     @Autowired
     OwnerService ownerServiceImpl;
     
-//    @GetMapping("/test")
-//    public String test() {
+//    @GetMapping("/roles")
+//    public String role() {
 //        return "Roles is working";
 //    }
     
+    /* Creating Owner in MongoDB whose collection is owner */
+    
     @ApiOperation(value = "It Will Create Owner",notes="this just create owner")
-	@PostMapping(value = "/create/owner")
+	@PostMapping(value = "/createOwner")
 	public ResponseEntity<String> createOwner(@RequestBody OwnerModel ownerDto) {
 		
 		return new ResponseEntity(ownerServiceImpl.createOwner(ownerDto), HttpStatus.CREATED);
 	}
     
-	@PutMapping(value = "/update/owner")
+    /* Updating Owner in MongoDB whose collection is owner */
+	
+	@ApiOperation(value = "It Will Update the Owner Details")
+	@PutMapping(value = "/updateOwner")
 	public ResponseEntity<String> updateOwner(@RequestBody OwnerModel ownerDto) {
 
 		return new ResponseEntity(ownerServiceImpl.updateOwner(ownerDto), HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value="/deleteowner/byuser/{username}")
+    /* Deleting Owner in MongoDB where collection is owner */
+	
+	@ApiOperation(value = "It Will Delete the Owner Details with username")
+	@DeleteMapping(value="/deleteOwner/byuser/{username}")
     public ResponseEntity<String> deleteOwnerById(@PathVariable String username){
 		return new ResponseEntity("Sucess", HttpStatus.OK);
 		

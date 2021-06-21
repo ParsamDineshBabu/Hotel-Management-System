@@ -19,45 +19,33 @@ spring:
               - DELETE
               - OPTIONS
       routes:
-        - id: master-service
-          uri: lb://MASTER-SERVICE
+        - id: function-service
+          uri: lb://FUNCTION-SERVICE
           predicates:
             - Path=/master/**
-          filters:
-            - AuthFilter
-            - name: CircuitBreaker
-              args:
-                name: master-service
-                fallbackuri: forward:/masterFallback
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: master-service
+#                fallbackuri: forward:/masterFallback
         - id: booking-service
           uri: lb://BOOKING-SERVICE
           predicates:
             - Path=/booking/**
-          filters:
-            - AuthFilter
-            - name: CircuitBreaker
-              args:
-                name: booking-service
-                fallbackuri: forward:/bookingFallback
-        - id: roles-service
-          uri: lb://ROLES-SERVICE
-          predicates:
-            - Path=/roles/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: roles-service
-                fallbackuri: forward:/rolesFallback 
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: booking-service
+#                fallbackuri: forward:/bookingFallback
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: auth-service
-                fallbackuri: forward:/authFallback        
-       
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: auth-service
+#                fallbackuri: forward:/authFallback        
 
 
 
@@ -79,4 +67,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 9000000
+            timeoutInMilliseconds: 9999999

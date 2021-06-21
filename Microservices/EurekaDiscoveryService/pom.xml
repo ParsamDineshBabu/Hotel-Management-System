@@ -8,10 +8,10 @@
 		<version>2.3.11.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hm.app</groupId>
-	<artifactId>hm-booking-service</artifactId>
+	<groupId>com.hostel.RolesMicro</groupId>
+	<artifactId>roles-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hm-booking-service</name>
+	<name>roles-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
