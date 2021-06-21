@@ -1,7 +1,7 @@
 package com.hotel.auth.entity;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 
 @Document(collection = "User")
 public class User {
@@ -10,6 +10,8 @@ public class User {
 
 	private String username;
 
+	private String empId;
+
 	private String password;
 
 	private String role;
@@ -17,8 +19,9 @@ public class User {
 	public User() {
 	}
 
-	public User(String username,String password, String role) {
+	public User(String username, String empId, String password,String role) {
 		this.username = username;
+		this.empId = empId;
 		this.password = password;
 		this.role= role;
 	}
@@ -37,6 +40,14 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(String empId) {
+		this.empId = empId;
 	}
 
 	public String getPassword() {

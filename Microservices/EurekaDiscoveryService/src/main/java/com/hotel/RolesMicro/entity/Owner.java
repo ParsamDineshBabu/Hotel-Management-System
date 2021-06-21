@@ -1,10 +1,11 @@
 package com.hotel.RolesMicro.entity;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "owner")
 public class Owner {
-    
+    @Id
 	private String username;
 	private String password;
 	
