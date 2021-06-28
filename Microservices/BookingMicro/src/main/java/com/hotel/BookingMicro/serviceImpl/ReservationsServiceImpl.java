@@ -69,7 +69,6 @@ public class ReservationsServiceImpl implements ReservationsService{
 	    
 	    public ReservationsDto findByRoomNo(String roomNo) {
 	    	ReservationsDto reservationsDto = null;
-	    	System.out.println("Searching reservation with booking number-Start");
 			Reservations s = reservationsRepository.findByRoomNo(roomNo);
 			
 			if(null != s) {
@@ -78,7 +77,7 @@ public class ReservationsServiceImpl implements ReservationsService{
 						s.getAddressProof(),s.getProofId(),s.getPaymentStatus(),s.getCompany(),
 						s.getCity(),s.getSpoc(),s.getPaymentType(),s.getAmount(),s.getStatus());
 			}
-			System.out.println("Searching reservation with booking number-End");
+
 		    return reservationsDto;	
 	    }
 	    
@@ -103,7 +102,7 @@ public class ReservationsServiceImpl implements ReservationsService{
 						reservationsDto.getAmount(),reservationsDto.getStatus()));
 				return savedRoom.getRoomNo();
 			}else{
-				return "Unable to fnd Room";
+				return "Unable to find Room";
 			}
 		}
 

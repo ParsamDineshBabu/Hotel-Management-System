@@ -1,10 +1,9 @@
-//package com.hotel.auth.enums;
-//
-//public enum ClientType {
-//
-//	//Client types
-//	Administrator,
-//	Owner,
-//	Manager,
-//	Receptionist
-//}
+package com.hotel.auth.enums;
+
+public enum ClientType {
+
+	Administrator,
+	Owner,
+	Manager,
+	Receptionist
+}

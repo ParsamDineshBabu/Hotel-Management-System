@@ -1,20 +1,53 @@
-spring:
-  application:
-    name: CONFIG-SERVER
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/ParsamDineshBabu/cloud-config
+paytm.payment:
+  sandbox:
+    merchantId: gMxXXo04966093966370
+    merchantKey: WA_egRFQ1fy7o0Ix
+    channelId: WEB
+    website: WEBSTAGING
+    industryTypeId: Retail
+    paytmUrl:  https://securegw-stage.paytm.in/order/process
+    callbackUrl: http://localhost:9090/pgresponse
+    details:
+      MID: ${paytm.payment.sandbox.merchantid}
+      CHANNEL_ID: ${paytm.payment.sandbox.channelid}
+      INDUSTRY_TYPE_ID: ${paytm.payment.sandbox.industrytypeid}
+      WEBSITE: ${paytm.payment.sandbox.website}
+      CALLBACK_URL: ${paytm.payment.sandbox.callbackUrl}
 
-server:
-  port: 9196
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    hostname: localhost    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#spring:
+#  application:
+#    name: CONFIG-SERVER
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/ParsamDineshBabu/cloud-config
+#
+#server:
+#  port: 9196
+#
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    hostname: localhost    

@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
 
 import com.hotel.auth.entity.User;
+import com.hotel.auth.enums.ClientType;
 //import com.hotel.auth.enums.ClientType;
 import com.hotel.auth.repository.UserRepository;
 
@@ -27,22 +28,22 @@ public class AuthenticationApplication {
 	public RestTemplate restTemplate(){
 		return  new RestTemplate();
 	}
+
+	@Bean
+	public CommandLineRunner createAdmin(UserRepository userRepository,PasswordEncoder passwordEncoder){
+		return args -> {
+			Optional<User> optionalUser = userRepository.findByUsername("dineshparsam@gmail.com");
+			if(!optionalUser.isPresent()){
+					saveAdmin(passwordEncoder,userRepository);
+			}
+		};
+	}
+
+	private void saveAdmin(PasswordEncoder passwordEncoder,UserRepository userRepository) {
+		User admin = new User();
+		admin.setUsername("dineshparsam@gmail.com");
+		admin.setPassword(passwordEncoder.encode("chinna"));
+		admin.setRole(ClientType.Administrator.toString());
+		userRepository.save(admin);
+	}
 }
-//	@Bean
-//	public CommandLineRunner createAdmin(UserRepository userRepository,PasswordEncoder passwordEncoder){
-//		return args -> {
-//			Optional<User> optionalUser = userRepository.findByUsername("dineshparsam@gmail.com");
-//			if(!optionalUser.isPresent()){
-//					saveAdmin(passwordEncoder,userRepository);
-//			}
-//		};
-//	}
-//
-//	private void saveAdmin(PasswordEncoder passwordEncoder,UserRepository userRepository) {
-//		User admin = new User();
-//		admin.setUsername("dineshparsam@gmail.com");
-//		admin.setPassword(passwordEncoder.encode("chinna"));
-//		admin.setRole(ClientType.Administrator.toString());
-//		userRepository.save(admin);
-//	}
-//}

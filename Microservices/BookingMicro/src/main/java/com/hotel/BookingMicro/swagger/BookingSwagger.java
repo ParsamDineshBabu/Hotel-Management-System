@@ -20,7 +20,7 @@ public class BookingSwagger {
 	public Docket swaggerConfig() {
 	    return new Docket(DocumentationType.SWAGGER_2)
 	      .select()
-	      .apis(RequestHandlerSelectors.any())
+	      .apis(RequestHandlerSelectors.basePackage("com.hotel"))
 	      .paths(PathSelectors.any())
 	      .build()
 	      .apiInfo(appInformation());
@@ -28,7 +28,7 @@ public class BookingSwagger {
 
 	private ApiInfo appInformation() {
 		return new ApiInfo(
-				"Swagger API For Master Micro",
+				"Swagger API For Booking Micro",
 				"Private API",
 				"Using Spring Boot Version",
 				"2.3.11", 

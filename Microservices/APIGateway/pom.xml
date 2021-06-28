@@ -8,10 +8,10 @@
 		<version>2.3.11.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hotel.app</groupId>
-	<artifactId>hotel-cloud-gateway-service</artifactId>
+	<groupId>com.hotel</groupId>
+	<artifactId>hotel-api-gateway-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hotel-cloud-gateway-service</name>
+	<name>hotel-api-gateway-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -38,10 +38,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency> -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

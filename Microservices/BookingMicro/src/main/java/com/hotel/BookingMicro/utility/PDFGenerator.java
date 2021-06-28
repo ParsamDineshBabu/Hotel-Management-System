@@ -42,11 +42,11 @@ public class PDFGenerator {
         	
             // Add Text to PDF file ->
         	Font font = FontFactory.getFont(FontFactory.COURIER, 14, BaseColor.BLACK);
-        	Paragraph para = new Paragraph( "Booking information -Beach Resort", font);
+        	Paragraph para = new Paragraph( "Booking information Paradise Hotels", font);
         	para.setAlignment(Element.ALIGN_CENTER);
         	document.add(para);
         	document.add(Chunk.NEWLINE);
-        	document.addTitle("Beach Resorts Hotels Group");
+        	document.addTitle("Paradise Hotels Bill");
         	
         	PdfPTable table = new PdfPTable(6);
         	// Add PDF Table Header ->

@@ -37,7 +37,7 @@ private String id;
 	public EmployeeDto() {}
 
 	public EmployeeDto(String id, String name, String empId, String email, String contactNo, String salary, Date dob,
-			Date joinDate, Date endDate) {
+			Date joinDate, Date endDate,  String role) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -48,6 +48,7 @@ private String id;
 		this.dob = dob;
 		this.joinDate = joinDate;
 		this.endDate = endDate;
+		this.role=role;
 	}
 
 	public String getRole() {

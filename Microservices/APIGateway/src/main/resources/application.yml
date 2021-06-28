@@ -11,7 +11,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000"
+            allowedOrigins: "/**"
             allowedMethods:
               - GET
               - POST
@@ -23,29 +23,33 @@ spring:
           uri: lb://FUNCTION-SERVICE
           predicates:
             - Path=/master/**
-#          filters:
-#            - name: CircuitBreaker
-#              args:
-#                name: master-service
-#                fallbackuri: forward:/masterFallback
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: master-service
+                fallbackuri: forward:/masterdown
         - id: booking-service
           uri: lb://BOOKING-SERVICE
           predicates:
             - Path=/booking/**
-#          filters:
-#            - name: CircuitBreaker
-#              args:
-#                name: booking-service
-#                fallbackuri: forward:/bookingFallback
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: booking-service
+                fallbackuri: forward:/bookingdown
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**
-#          filters:
-#            - name: CircuitBreaker
-#              args:
-#                name: auth-service
-#                fallbackuri: forward:/authFallback        
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: auth-service
+                fallbackuri: forward:/authdown        
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
 
 
 
@@ -67,4 +71,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 9999999
+            timeoutInMilliseconds: 9999999999999999999999999999999999999999999999999999999999999999

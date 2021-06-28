@@ -3,7 +3,7 @@ package com.hotel.FunctionMicro.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "inventory")
+@Document(collection = "Inventory")
 public class Inventory {
 
 	@Id

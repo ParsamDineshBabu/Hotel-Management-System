@@ -36,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if(!empList.isEmpty()) {
 			for(Employee s:empList){
 				EmployeeDto empDto = new EmployeeDto(s.getId(),s.getName(),s.getEmpId(),s.getEmail(),s.getContactNo(),
-						s.getSalary(),s.getDob(),s.getJoinDate(),s.getEndDate());
+						s.getSalary(),s.getDob(),s.getJoinDate(),s.getEndDate(),s.getRole());
 				result.add(empDto);
 			}
 		}
@@ -51,7 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if(emp.isPresent()) {
 			Employee s =emp.get();
 			empDto = new EmployeeDto(s.getId(),s.getName(),s.getEmpId(),s.getEmail(),s.getContactNo(),
-					s.getSalary(),s.getDob(),s.getJoinDate(),s.getEndDate());
+					s.getSalary(),s.getDob(),s.getJoinDate(),s.getEndDate(),s.getRole());
 		}
 		
 	    return empDto;	
@@ -66,7 +66,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public String updateEmployee(EmployeeDto empDto) {
 		Optional<Employee> room = empRepository.findById(empDto.getId());
-		System.out.println("**************UPdating"+empDto.getEmpId());
+
 		Employee updatedEmployee = null;
 		if(room.isPresent()){
 			Employee emp = new Employee(empDto.getId(),empDto.getName(),empDto.getEmpId(),empDto.getEmail(),empDto.getContactNo(),
@@ -76,7 +76,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			empRepository.save(emp);
 			return emp.getEmpId();
 		}else{
-			return "Unable to fnd employee";
+			return "Unable to find employee";
 		}
 
 	}
