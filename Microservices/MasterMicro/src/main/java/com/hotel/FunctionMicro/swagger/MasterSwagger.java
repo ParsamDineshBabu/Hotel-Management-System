@@ -26,7 +26,7 @@ public class MasterSwagger {
 	public Docket swaggerConfig() {
 	    return new Docket(DocumentationType.SWAGGER_2)
 	      .select()
-	      .apis(RequestHandlerSelectors.any())
+	      .apis(RequestHandlerSelectors.basePackage("com.hotel"))
 	      .paths(PathSelectors.any())
 	      .build()
 	      .apiInfo(appInformation());
@@ -34,12 +34,12 @@ public class MasterSwagger {
 
 	private ApiInfo appInformation() {
 		return new ApiInfo(
-				"Swagger API For Master Micro",
+				"Swagger API For Function Micro",
 				"Private API",
 				"Using Spring Boot Version",
 				"2.3.11", 
 				new Contact("Parsam Dinesh Babu","dineshparsam@gmail.com","7989921666"), 
-				"Master",
+				"Function",
 				"Swagger",
 				Collections.emptyList());
 	}

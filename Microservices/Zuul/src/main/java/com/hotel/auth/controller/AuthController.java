@@ -1,14 +1,11 @@
 package com.hotel.auth.controller;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,11 +28,11 @@ public class AuthController {
 	@Autowired
 	UserRepository userRepository;
 
-	 @GetMapping(value = "/test/docker")
-	    public String testHm() {
+	 @GetMapping(value = "/test/security")
+	    public String security() {
 
 
-	        return "Docker set up done!!";
+	        return "security set up done!!";
 	    }
 	
 	@PostMapping("/signin")

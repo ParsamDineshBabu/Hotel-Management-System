@@ -3,12 +3,11 @@ package com.hotel.FunctionMicro.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "rooms")
+@Document(collection = "Rooms")
 public class Room {
 
 	@Id
 	private String id;
-	
 	private String roomNo;
 	
 	private String floor;
