@@ -23,29 +23,29 @@ spring:
           uri: lb://FUNCTION-SERVICE
           predicates:
             - Path=/master/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: master-service
-                fallbackuri: forward:/masterdown
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: master-service
+#                fallbackuri: forward:/masterdown
         - id: booking-service
           uri: lb://BOOKING-SERVICE
           predicates:
             - Path=/booking/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: booking-service
-                fallbackuri: forward:/bookingdown
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: booking-service
+#                fallbackuri: forward:/bookingdown
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/auth/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: auth-service
-                fallbackuri: forward:/authdown        
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: auth-service
+#                fallbackuri: forward:/authdown        
         - id: payment-service
           uri: lb://PAYMENT-SERVICE
           predicates:
